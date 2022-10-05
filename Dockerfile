@@ -48,7 +48,7 @@ COPY --from=builder /app/next.config.js ./next.config.js
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 
-COPY --from=builder --chown=nextjs:nodejs /app/.env ./.env
+# COPY --from=builder --chown=nextjs:nodejs /app/.env ./.env
 
 EXPOSE 3000
 
