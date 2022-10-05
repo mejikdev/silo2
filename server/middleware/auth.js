@@ -1,19 +1,32 @@
 const { verify } = require("jsonwebtoken");
+import User from "../models/User";
 
-const AuthMiddleware = (req, res) => {
-  const { authorization } = req.headers;
+const AuthMiddleware = async (req, res) => {
+  try {
+    const { authorization } = req.headers;
 
-  if (!authorization) return null;
+    if (!authorization) return null;
 
-  const token = authorization.split("Bearer ")[1];
+    const token = authorization.split("Bearer ")[1];
 
-  if (!token) null;
+    if (!token) null;
 
-  const validate = verify(token, process.env.JWT_SECRET);
+    const validate = verify(token, process.env.JWT_SECRET);
 
-  if (!validate) return null;
+    if (!validate) return null;
 
-  return validate.id;
+    const user = new User();
+
+    const users = await user.Get(validate.id);
+
+    if (users.length <= 0) {
+      return null;
+    }
+
+    return validate.id;
+  } catch (error) {
+    return null;
+  }
 };
 
 export { AuthMiddleware };

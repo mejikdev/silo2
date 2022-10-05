@@ -7,8 +7,8 @@ import { AuthMiddleware } from "../../../server/middleware/auth";
  * @param {Response} res
  * @returns
  */
-export default function handler(req, res) {
-  const userId = AuthMiddleware(req, res);
+export default async function handler(req, res) {
+  const userId = await AuthMiddleware(req, res);
   if (userId == null) {
     return res.status(401).json({
       message: "unauthorized user!",

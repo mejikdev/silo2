@@ -1,16 +1,13 @@
 import NewMongodbClient from "../package/mongodb/mongodb";
 
-var mongo = require("mongodb");
-
 const dbName = "users";
 class User {
-  constructor(first, last, email, password, phone) {
+  constructor(first, last, email, phoneNumber) {
     this._id;
     this.firstName = first;
     this.lastName = last;
     this.email = email;
-    this.password = password;
-    this.phone = phone;
+    this.phoneNumber = phoneNumber;
   }
 
   /**
@@ -31,7 +28,7 @@ class User {
     const filter = {};
 
     if (id) {
-      filter._id = new mongo.ObjectId(id);
+      filter._id = id;
     }
 
     if (email) {

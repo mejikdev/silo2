@@ -10,9 +10,9 @@ import microgen from "../package/sdk/microgen";
  * @returns
  */
 async function Register(req, res) {
-  const { firstName, lastName, email, password, phone } = req.body;
+  const { firstName, lastName, email, password, phoneNumber } = req.body;
 
-  const user = new User(firstName, lastName, email, password, phone);
+  const user = new User(firstName, lastName, email, phoneNumber);
 
   const existingUsers = await user.Get(null, email);
 
@@ -27,7 +27,7 @@ async function Register(req, res) {
     email: user.email,
     lastName: user.lastName,
     password: password,
-    phoneNumber: user.phone,
+    phoneNumber: user.phoneNumber,
   });
 
   if (error) {
@@ -39,7 +39,6 @@ async function Register(req, res) {
 
   user._id = userData._id;
 
-  user.password = hashSync(password, 10);
   await user.Add(user);
 
   user.token = sign(
@@ -48,8 +47,6 @@ async function Register(req, res) {
     },
     process.env.JWT_SECRET
   );
-
-  delete user.password;
 
   res.json(user);
 }
@@ -66,21 +63,24 @@ async function Login(req, res) {
   const user = new User();
 
   const existingUsers = await user.Get(null, email);
-
   if (existingUsers.length <= 0) {
     return res.status(409).json({
       message: `can't find user with email ${email}!`,
     });
   }
 
-  const currentUser = existingUsers[0];
+  const { error } = await microgen.auth.login({
+    email: email,
+    password: password,
+  });
 
-  const isValidPassword = compareSync(password, currentUser.password);
-  if (!isValidPassword) {
+  if (error) {
     return res.status(400).json({
-      message: "invalid password!",
+      message: error.message,
     });
   }
+
+  const currentUser = existingUsers[0];
 
   currentUser.token = await sign(
     {
