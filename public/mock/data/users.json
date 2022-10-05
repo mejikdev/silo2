@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "first_name": "Rikki",
+    "last_name": "Courson",
+    "email": "rcourson0@nhs.uk",
+    "password": "GhWkt8K",
+    "phone": "426 659 5006"
+  },
+  {
+    "id": 2,
+    "first_name": "Zacharia",
+    "last_name": "Woollam",
+    "email": "zwoollam1@wunderground.com",
+    "password": "RjS02guz4sRv",
+    "phone": "929 505 2508"
+  },
+  {
+    "id": 3,
+    "first_name": "Clim",
+    "last_name": "Bagot",
+    "email": "cbagot2@pinterest.com",
+    "password": "D9tWpd",
+    "phone": "249 874 6108"
+  },
+  {
+    "id": 4,
+    "first_name": "Elsie",
+    "last_name": "Cluely",
+    "email": "ecluely3@aol.com",
+    "password": "eaTp4tgU",
+    "phone": "347 836 8594"
+  },
+  {
+    "id": 5,
+    "first_name": "Benny",
+    "last_name": "Turpey",
+    "email": "bturpey4@edublogs.org",
+    "password": "KhJXVvxz",
+    "phone": "804 175 8459"
+  },
+  {
+    "id": 6,
+    "first_name": "Rafferty",
+    "last_name": "Behrend",
+    "email": "rbehrend5@ucsd.edu",
+    "password": "xrqSrNojRR",
+    "phone": "308 676 0366"
+  },
+  {
+    "id": 7,
+    "first_name": "Wadsworth",
+    "last_name": "Mellody",
+    "email": "wmellody6@netlog.com",
+    "password": "DBZgOQ1NNM",
+    "phone": "179 819 5923"
+  },
+  {
+    "id": 8,
+    "first_name": "Joceline",
+    "last_name": "Cotmore",
+    "email": "jcotmore7@psu.edu",
+    "password": "HzoMah9tmq1M",
+    "phone": "680 326 5181"
+  },
+  {
+    "id": 9,
+    "first_name": "Kiri",
+    "last_name": "Galbraeth",
+    "email": "kgalbraeth8@diigo.com",
+    "password": "xK0Ou6W374ll",
+    "phone": "516 440 5545"
+  },
+  {
+    "id": 10,
+    "first_name": "Maryjane",
+    "last_name": "Deamer",
+    "email": "mdeamer9@wikispaces.com",
+    "password": "EsVF0OPznh",
+    "phone": "572 204 2184"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "first_name": "Bernadine",
+    "last_name": "Nobes",
+    "title": "Marketing Manager",
+    "departement": "Legal"
+  },
+  {
+    "id": 2,
+    "first_name": "Caresse",
+    "last_name": "Zecchi",
+    "title": "Recruiting Manager",
+    "departement": "Services"
+  },
+  {
+    "id": 3,
+    "first_name": "Jennie",
+    "last_name": "Tomenson",
+    "title": "Automation Specialist I",
+    "departement": "Engineering"
+  },
+  {
+    "id": 4,
+    "first_name": "Nobie",
+    "last_name": "Bandey",
+    "title": "Quality Control Specialist",
+    "departement": "Product Management"
+  },
+  {
+    "id": 5,
+    "first_name": "Ronny",
+    "last_name": "Postan",
+    "title": "Software Test Engineer III",
+    "departement": "Support"
+  },
+  {
+    "id": 6,
+    "first_name": "Bernard",
+    "last_name": "Dearden",
+    "title": "Internal Auditor",
+    "departement": "Engineering"
+  },
+  {
+    "id": 7,
+    "first_name": "Leonhard",
+    "last_name": "Oakwood",
+    "title": "Assistant Media Planner",
+    "departement": "Support"
+  },
+  {
+    "id": 8,
+    "first_name": "Xena",
+    "last_name": "Gascard",
+    "title": "Quality Engineer",
+    "departement": "Training"
+  },
+  {
+    "id": 9,
+    "first_name": "Sammy",
+    "last_name": "Pixton",
+    "title": "Statistician II",
+    "departement": "Business Development"
+  },
+  {
+    "id": 10,
+    "first_name": "Malanie",
+    "last_name": "Blucher",
+    "title": "Community Outreach Specialist",
+    "departement": "Legal"
+  }
+]
