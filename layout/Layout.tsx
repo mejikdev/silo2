@@ -2,6 +2,7 @@ import { AppBar, Box, Button, Stack, Toolbar, Typography } from "@mui/material";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
+import { setCookie } from "../utils/cookie";
 
 type Props = React.PropsWithChildren<{
   title?: string;
@@ -12,6 +13,11 @@ export const Layout = ({ children, title }: Props) => {
   const router = useRouter();
 
   const selectedRoute = router.pathname.split("/")[1];
+
+  const onLogout = React.useCallback(() => {
+    setCookie("token", "");
+    window.location.href = "/";
+  }, []);
 
   return (
     <>
@@ -42,7 +48,9 @@ export const Layout = ({ children, title }: Props) => {
                 Employees
               </Button>
             </Box>
-            <Button variant="contained">Logout</Button>
+            <Button variant="contained" onClick={onLogout}>
+              Logout
+            </Button>
           </Toolbar>
         </AppBar>
         <Stack sx={{ overflow: "auto" }}>{children}</Stack>

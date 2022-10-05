@@ -20,7 +20,7 @@ export const useLogin = () => {
         console.log(error);
       }
     },
-    [mutateAsync]
+    [mutateAsync, router]
   );
 
   const inputs = [
@@ -41,7 +41,6 @@ export const useLogin = () => {
       name: "password",
       label: "Password",
       placeholder: "Your password adress",
-      autoFocus: true,
       type: "password",
       validation: {
         required: {
