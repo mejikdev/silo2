@@ -13,7 +13,7 @@ async function Register(req, res) {
 
   const user = new User(firstName, lastName, email, password, phone);
 
-  const existingUsers = await user.Get(email);
+  const existingUsers = await user.Get("", email);
 
   if (!existingUsers.length <= 0) {
     return res.status(409).json({

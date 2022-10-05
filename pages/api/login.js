@@ -1,5 +1,4 @@
 import { Login } from "../../server/controllers/auth";
-import { AuthMiddleware } from "../../server/middleware/auth";
 
 /**
  *

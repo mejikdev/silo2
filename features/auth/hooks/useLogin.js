@@ -1,15 +1,27 @@
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import * as React from "react";
+import { useLoginMutation } from "../../../api/features/auth";
+import { setCookie } from "../../../utils/cookie";
 
 export const useLogin = () => {
   const methods = useForm();
+  const router = useRouter();
 
-  const [isLoading, setIsloading] = React.useState(false);
+  const { mutateAsync, isLoading } = useLoginMutation();
 
-  const handleLogin = React.useCallback((data) => {
-    setIsloading(true);
-    console.log(data);
-  }, []);
+  const handleLogin = React.useCallback(
+    async (data) => {
+      try {
+        const result = await mutateAsync(data);
+        setCookie("token", result.token);
+        router.replace("/employee");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [mutateAsync]
+  );
 
   const inputs = [
     {
