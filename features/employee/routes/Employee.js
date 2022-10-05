@@ -17,8 +17,8 @@ const columns = [
     flex: 1,
   },
   {
-    field: "departement",
-    headerName: "Departement",
+    field: "department",
+    headerName: "Department",
     flex: 1,
   },
 ];
@@ -29,7 +29,7 @@ export const Employee = () => {
 
   const rows = React.useMemo(() => {
     if (data?.length) {
-      return data;
+      return data.map((item, index) => ({ id: index + 1, ...item }));
     }
 
     return [];

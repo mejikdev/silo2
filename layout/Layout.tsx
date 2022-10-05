@@ -20,7 +20,7 @@ export const Layout = ({ children, title }: Props) => {
       </Head>
       <Stack
         sx={{
-          height: "100vh",
+          maxHeight: "100vh",
           overflow: "hidden",
         }}
       >

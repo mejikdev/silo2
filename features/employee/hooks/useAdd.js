@@ -1,15 +1,25 @@
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import * as React from "react";
+import { useCreateEmployee } from "../../../api/features/employee";
 
 export const useAdd = () => {
   const methods = useForm();
+  const router = useRouter();
 
-  const [isLoading, setIsloading] = React.useState(false);
+  const { mutateAsync, isLoading } = useCreateEmployee();
 
-  const handleSubmit = React.useCallback((data) => {
-    setIsloading(true);
-    console.log({ data });
-  }, []);
+  const handleSubmit = React.useCallback(
+    async (data) => {
+      try {
+        await mutateAsync(data);
+        router.push("/employee");
+      } catch (error) {
+        console.log("failed to create employee", error);
+      }
+    },
+    [mutateAsync, router]
+  );
 
   const inputs = React.useMemo(
     () => [
@@ -27,9 +37,9 @@ export const useAdd = () => {
         },
       },
       {
-        name: "departement",
-        label: "Departement",
-        placeholder: "Employee departement",
+        name: "department",
+        label: "Department",
+        placeholder: "Employee department",
         type: "select",
         options: [
           { label: "Human Resource", value: "Human Resource" },
@@ -44,12 +54,12 @@ export const useAdd = () => {
         validation: {
           required: {
             value: true,
-            message: "Employee departement is required!",
+            message: "Employee department is required!",
           },
         },
       },
       {
-        name: "position",
+        name: "title",
         label: "Position",
         placeholder: "Employee position",
         type: "select",

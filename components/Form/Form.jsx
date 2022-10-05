@@ -29,7 +29,7 @@ export const Form = React.memo(function Form({
         break;
     }
 
-    return <Box>{children}</Box>;
+    return <Box key={inputProps.name}>{children}</Box>;
   }, []);
 
   return (
