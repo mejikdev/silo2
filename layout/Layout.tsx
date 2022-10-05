@@ -13,8 +13,6 @@ export const Layout = ({ children, title }: Props) => {
 
   const selectedRoute = router.pathname.split("/")[1];
 
-  console.log(selectedRoute);
-
   return (
     <>
       <Head>

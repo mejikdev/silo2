@@ -25,10 +25,6 @@ export const Input = React.memo(function Input({ name, validation, ...props }) {
   const { formState, register } = useFormContext();
   const { errors } = formState;
 
-  React.useEffect(() => {
-    console.log({ errors });
-  }, [errors]);
-
   return (
     <StyledInput
       fullWidth
