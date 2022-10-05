@@ -16,6 +16,7 @@
     "@tanstack/react-query": "^4.10.1",
     "axios": "^1.0.0",
     "bcrypt": "^5.0.1",
+    "cookie": "^0.5.0",
     "jsonwebtoken": "^8.5.1",
     "microgen-v3-sdk": "^0.8.12",
     "moment": "^2.29.4",

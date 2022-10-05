@@ -1,5 +1,4 @@
 import { Register } from "../../server/controllers/auth";
-import { AuthMiddleware } from "../../server/middleware/auth";
 
 /**
  *

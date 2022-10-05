@@ -8,7 +8,7 @@ export const AddEmployee = React.memo(function AddEmployee() {
   const { inputs, isLoading, methods, handleSubmit } = useAdd();
 
   return (
-    <Container>
+    <Container sx={{ mt: 4 }}>
       <Box>
         <Title>Add Employee</Title>
         <Form
