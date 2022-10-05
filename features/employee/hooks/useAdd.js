@@ -12,6 +12,7 @@ export const useAdd = () => {
   const handleSubmit = React.useCallback(
     async (data) => {
       try {
+        data.dateOfHired = new Date().toISOString();
         await mutateAsync(data);
         router.push("/employee");
       } catch (error) {
