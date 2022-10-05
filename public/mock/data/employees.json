@@ -1,71 +1,61 @@
 [
   {
     "id": 1,
-    "first_name": "Bernadine",
-    "last_name": "Nobes",
+    "name": "Bernadine Nobes",
     "title": "Marketing Manager",
     "departement": "Legal"
   },
   {
     "id": 2,
-    "first_name": "Caresse",
-    "last_name": "Zecchi",
+    "name": "Caresse Zecchi",
     "title": "Recruiting Manager",
     "departement": "Services"
   },
   {
     "id": 3,
-    "first_name": "Jennie",
-    "last_name": "Tomenson",
+    "name": "Jennie Tomenson",
     "title": "Automation Specialist I",
     "departement": "Engineering"
   },
   {
     "id": 4,
-    "first_name": "Nobie",
-    "last_name": "Bandey",
+    "name": "Nobie Bandey",
     "title": "Quality Control Specialist",
     "departement": "Product Management"
   },
   {
     "id": 5,
-    "first_name": "Ronny",
-    "last_name": "Postan",
+    "name": "Ronny Postan",
     "title": "Software Test Engineer III",
     "departement": "Support"
   },
   {
     "id": 6,
-    "first_name": "Bernard",
-    "last_name": "Dearden",
+    "name": "Bernard Dearden",
     "title": "Internal Auditor",
     "departement": "Engineering"
   },
   {
     "id": 7,
-    "first_name": "Leonhard",
-    "last_name": "Oakwood",
+    "name": "Leonhard Oakwood",
     "title": "Assistant Media Planner",
     "departement": "Support"
   },
   {
     "id": 8,
-    "first_name": "Xena",
-    "last_name": "Gascard",
+    "name": "Xena Gascard",
     "title": "Quality Engineer",
     "departement": "Training"
   },
   {
     "id": 9,
-    "first_name": "Sammy",
-    "last_name": "Pixton",
+    "name": "Sammy Pixton",
     "title": "Statistician II",
     "departement": "Business Development"
   },
   {
     "id": 10,
-    "first_name": "Malanie",
-    "last_name": "Blucher",
+    "name": "Malanie Blucher",
     "title": "Community Outreach Specialist",
     "departement": "Legal"
   }
