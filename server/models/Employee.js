@@ -1,11 +1,11 @@
 import NewMongodbClient from "../package/mongodb/mongodb";
-
+import microgen from "../package/sdk/microgen";
 var mongo = require("mongodb");
 
 const dbName = "employees";
 class Employee {
-  constructor(name, title, department, salary, dateOfHired) {
-    this._id;
+  constructor(name, title, department, salary, dateOfHired, _id) {
+    this._id = _id;
     this.name = name;
     this.department = department;
     this.salary = salary;
@@ -20,6 +20,11 @@ class Employee {
    */
   Add = async (employees) => {
     const client = await NewMongodbClient();
+
+    if (employees._id) {
+      employees._id = mongo.ObjectId(employees._id);
+    }
+
     const employeesData = await client.collection(dbName).insertOne(employees);
 
     employees._id = employeesData.insertedId;
@@ -50,8 +55,6 @@ class Employee {
     const client = await NewMongodbClient();
 
     const newObj = removeEmpty(employee);
-
-    console.log(newObj, "OBJ");
 
     const employeesData = await client.collection(dbName).updateOne(
       {

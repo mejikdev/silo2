@@ -1,6 +1,7 @@
 import User from "../models/User";
 import { hashSync, compareSync } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import microgen from "../package/sdk/microgen";
 
 /**
  *
@@ -13,7 +14,7 @@ async function Register(req, res) {
 
   const user = new User(firstName, lastName, email, password, phone);
 
-  const existingUsers = await user.Get(email);
+  const existingUsers = await user.Get(null, email);
 
   if (!existingUsers.length <= 0) {
     return res.status(409).json({
@@ -21,8 +22,23 @@ async function Register(req, res) {
     });
   }
 
+  const { error } = await microgen.auth.register({
+    firstName: user.firstName,
+    email: user.email,
+    lastName: user.lastName,
+    password: password,
+    phoneNumber: user.phone,
+  });
+  if (error) {
+    console.log(error, "ERROR");
+    return res.status(500).json({
+      message: "failed register user",
+    });
+  }
+
   user.password = hashSync(password, 10);
   await user.Add(user);
+
   user.token = sign(
     {
       id: user._id,
