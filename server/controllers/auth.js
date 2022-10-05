@@ -63,7 +63,7 @@ async function Login(req, res) {
     });
   }
 
-  user.token = await sign(
+  currentUser.token = await sign(
     {
       id: currentUser._id,
     },
