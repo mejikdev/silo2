@@ -16,7 +16,6 @@ const Create = async (req, res) => {
 
   const { data, error } = await microgen.service("employees").create(employee);
   if (error) {
-    console.log(employee);
     console.log("failed create employees: ", error);
 
     return res.status(500).json({

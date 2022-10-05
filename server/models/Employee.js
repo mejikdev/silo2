@@ -1,6 +1,4 @@
 import NewMongodbClient from "../package/mongodb/mongodb";
-import microgen from "../package/sdk/microgen";
-var mongo = require("mongodb");
 
 const dbName = "employees";
 class Employee {
@@ -21,10 +19,6 @@ class Employee {
   Add = async (employees) => {
     const client = await NewMongodbClient();
 
-    if (employees._id) {
-      employees._id = mongo.ObjectId(employees._id);
-    }
-
     const employeesData = await client.collection(dbName).insertOne(employees);
 
     employees._id = employeesData.insertedId;
@@ -40,7 +34,7 @@ class Employee {
     }
 
     if (id) {
-      filter._id = new mongo.ObjectId(id);
+      filter._id = id;
     }
 
     return client.collection(dbName).find(filter).toArray();
@@ -58,7 +52,7 @@ class Employee {
 
     const employeesData = await client.collection(dbName).updateOne(
       {
-        _id: new mongo.ObjectId(id),
+        _id: id,
       },
       {
         $set: newObj,
@@ -72,7 +66,7 @@ class Employee {
     const client = await NewMongodbClient();
 
     const res = await client.collection(dbName).deleteOne({
-      _id: new mongo.ObjectId(id),
+      _id: id,
     });
 
     return res.deletedCount;

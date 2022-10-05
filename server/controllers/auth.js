@@ -22,19 +22,22 @@ async function Register(req, res) {
     });
   }
 
-  const { error } = await microgen.auth.register({
+  const { error, user: userData } = await microgen.auth.register({
     firstName: user.firstName,
     email: user.email,
     lastName: user.lastName,
     password: password,
     phoneNumber: user.phone,
   });
+
   if (error) {
     console.log(error, "ERROR");
     return res.status(500).json({
       message: "failed register user",
     });
   }
+
+  user._id = userData._id;
 
   user.password = hashSync(password, 10);
   await user.Add(user);
