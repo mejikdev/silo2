@@ -1,4 +1,4 @@
-import { Employee } from "../../features/employee/routes/Employee";
+import { Employee } from "../../features/employee";
 import { Layout } from "../../layout/Layout";
 
 const EmployeePage = () => {
