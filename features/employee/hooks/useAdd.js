@@ -46,11 +46,9 @@ export const useAdd = () => {
           { label: "Human Resource", value: "Human Resource" },
           { label: "Legal", value: "Legal" },
           { label: "Services", value: "Services" },
-          { label: "Product Management", value: "Product Management" },
           { label: "Support", value: "Support" },
+          { label: "Marketing", value: "Marketing" },
           { label: "Engineering", value: "Engineering" },
-          { label: "Training", value: "Training" },
-          { label: "Business Development", value: "Business Development" },
         ],
         validation: {
           required: {
@@ -65,31 +63,12 @@ export const useAdd = () => {
         placeholder: "Employee position",
         type: "select",
         options: [
-          { label: "Marketing Manager", value: "Marketing Manager" },
-          { label: "Recruiting Manager", value: "Recruiting Manager" },
-          {
-            label: "Automation Specialist I",
-            value: "Automation Specialist I",
-          },
-          {
-            label: "Quality Control Specialist",
-            value: "Quality Control Specialist",
-          },
-          {
-            label: "Software Test Engineer III",
-            value: "Software Test Engineer III",
-          },
-          { label: "Internal Auditor", value: "Internal Auditor" },
-          {
-            label: "Assistant Media Planner",
-            value: "Assistant Media Planner",
-          },
-          { label: "Quality Engineer", value: "Quality Engineer" },
-          { label: "Statistician II", value: "Statistician II" },
-          {
-            label: "Community Outreach Specialist",
-            value: "Community Outreach Specialist",
-          },
+          { label: "VP Engineer", value: "VP Engineer" },
+          { label: "Staff CS", value: "Staff CS" },
+          { label: "Staff Accountant", value: "Staff Accountant" },
+          { label: "Staff Marketing", value: "Staff Marketing" },
+          { label: "Frontend Developer", value: "Frontend Developer" },
+          { label: "Backend Developer", value: "Backend Developer" },
         ],
         validation: {
           required: {
