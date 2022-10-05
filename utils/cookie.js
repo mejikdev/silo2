@@ -23,8 +23,8 @@ export const getCookie = (key) => {
 export const setCookie = (key, value) => {
   const serializedCookie = serialize(key, value, {
     path: "/",
-    secure: process.env.NODE_ENV !== "development",
-    sameSite: process.env.NODE_ENV !== "development" ? "none" : "lax",
+    // secure: process.env.NODE_ENV !== "development",
+    // sameSite: process.env.NODE_ENV !== "development" ? "none" : "lax",
   });
 
   document.cookie = serializedCookie;
