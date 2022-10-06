@@ -14,14 +14,6 @@ async function Register(req, res) {
 
   const user = new User(firstName, lastName, email, phoneNumber);
 
-  const existingUsers = await user.Get(null, email);
-
-  if (!existingUsers.length <= 0) {
-    return res.status(409).json({
-      message: "email already exists",
-    });
-  }
-
   const { error, user: userData } = await microgen.auth.register({
     firstName: user.firstName,
     email: user.email,
@@ -60,16 +52,7 @@ async function Register(req, res) {
 async function Login(req, res) {
   const { email, password } = req.body;
 
-  const user = new User();
-
-  const existingUsers = await user.Get(null, email);
-  if (existingUsers.length <= 0) {
-    return res.status(409).json({
-      message: `can't find user with email ${email}!`,
-    });
-  }
-
-  const { error } = await microgen.auth.login({
+  const { error, token, user } = await microgen.auth.login({
     email: email,
     password: password,
   });
@@ -80,18 +63,18 @@ async function Login(req, res) {
     });
   }
 
-  const currentUser = existingUsers[0];
-
-  currentUser.token = await sign(
+  jwtToken = sign(
     {
-      id: currentUser._id,
+      id: user._id,
     },
     process.env.JWT_SECRET
   );
 
-  delete currentUser.password;
+  delete user.password;
 
-  res.json(currentUser);
+  user.token = jwtToken;
+
+  res.json(user);
 }
 
 export { Register, Login };
