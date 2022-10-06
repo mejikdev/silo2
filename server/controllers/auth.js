@@ -63,7 +63,7 @@ async function Login(req, res) {
     });
   }
 
-  jwtToken = sign(
+  const jwtToken = sign(
     {
       id: user._id,
     },
